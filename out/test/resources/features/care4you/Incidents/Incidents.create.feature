@@ -12,5 +12,5 @@ Feature: Incident
 
 
     Examples:
-      | sname | sdescription | ddate      | stype  | sseverity | semployeeId |
-      | name1 | description  | 2018-01-01 | INJURY | HIGH      | 1           |
+      | sname       | sdescription   | ddate      | stype    | sseverity | semployeeId |
+      | My incident | My description | 12/04/2019 | FRACTURE | HIGH      | Juan Pinto  |

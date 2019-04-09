@@ -47,6 +47,6 @@ public class StepsDefinitionCare4You {
 
     @Given("^Enter 'Create an incident' form information$")
     public void enterIncidentsFormInformation(List<Incident> incident) throws Throwable {
-        System.out.println(incident.get(0).getName());
+        incidentCreate.fillIncidentsForm(incident.get(0));
     }
 }
