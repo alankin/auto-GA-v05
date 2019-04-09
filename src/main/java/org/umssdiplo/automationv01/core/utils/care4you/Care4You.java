@@ -2,7 +2,7 @@ package org.umssdiplo.automationv01.core.utils.care4you;
 
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.managepage.care4you.home.Home;
-import org.umssdiplo.automationv01.core.managepage.care4you.home.Incident;
+import org.umssdiplo.automationv01.core.managepage.care4you.Incident.Incident;
 import org.umssdiplo.automationv01.core.utils.PropertyAccessor;
 import org.umssdiplo.automationv01.core.utils.WebUrls;
 

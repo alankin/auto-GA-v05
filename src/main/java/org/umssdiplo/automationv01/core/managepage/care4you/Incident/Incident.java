@@ -1,4 +1,4 @@
-package org.umssdiplo.automationv01.core.managepage.care4you.home;
+package org.umssdiplo.automationv01.core.managepage.care4you.Incident;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

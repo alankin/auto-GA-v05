@@ -3,7 +3,7 @@ package org.umssdiplo.automationv01.stepdefinitionproject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.care4you.home.Home;
-import org.umssdiplo.automationv01.core.managepage.care4you.home.Incident;
+import org.umssdiplo.automationv01.core.managepage.care4you.Incident.Incident;
 import org.umssdiplo.automationv01.core.utils.care4you.Care4You;
 
 public class StepsDefinitionCare4You {
