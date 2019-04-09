@@ -1,18 +1,21 @@
 package org.umssdiplo.automationv01.core.utils.care4you;
 
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
-import org.umssdiplo.automationv01.core.managepage.care4you.home.Home;
-import org.umssdiplo.automationv01.core.managepage.care4you.Incident.Incident;
+import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentCreate;
+import org.umssdiplo.automationv01.core.managepage.care4you.web.home.Home;
+import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentHome;
 import org.umssdiplo.automationv01.core.utils.PropertyAccessor;
 import org.umssdiplo.automationv01.core.utils.WebUrls;
 
 public final class Care4You {
     private Home home;
-    private Incident incident;
+    private IncidentHome incidentHome;
+    private IncidentCreate incidentCreate;
 
     private Care4You() {
         home = new Home();
-        incident = new Incident();
+        incidentHome = new IncidentHome();
+        incidentCreate = new IncidentCreate();
     }
 
     public static Care4You init() {
@@ -25,7 +28,11 @@ public final class Care4You {
         return home;
     }
 
-    public Incident getIncident() {
-        return incident;
+    public IncidentHome getIncidentHome() {
+        return incidentHome;
+    }
+
+    public IncidentCreate getIncidentCreate() {
+        return incidentCreate;
     }
 }

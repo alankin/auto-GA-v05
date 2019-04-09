@@ -1,11 +1,11 @@
-package org.umssdiplo.automationv01.core.managepage.care4you.Incident;
+package org.umssdiplo.automationv01.core.managepage.care4you.web.Incident;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
-public class Incident extends BasePage {
+public class IncidentHome extends BasePage {
     @FindBy(id = "list-incidents-menu")
     private WebElement listIncidentsOption;
 
