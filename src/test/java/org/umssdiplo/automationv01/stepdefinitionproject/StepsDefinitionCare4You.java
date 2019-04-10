@@ -72,6 +72,11 @@ public class StepsDefinitionCare4You {
         incidentEdit.navigateToEditIncident();
     }
 
+    @And("^verify incident item has been edited in 'Incidents list'$")
+    public void verifyIncidentEdited(List<Incident> incident) throws Throwable {
+        incidentEdit.verifyIncidentEdited(incident.get(0));
+    }
+
     @Given("^click 'Delete an incident' button in first element of 'Incidents list'$")
     public void showDeleteModal() throws Throwable {
         incidentDelete.showDeleteModal();
@@ -85,5 +90,10 @@ public class StepsDefinitionCare4You {
     @And("^click 'Cancel' button from deletion modal$")
     public void cancelDeletionIncident() throws Throwable {
         incidentDelete.cancelDeletionIncident();
+    }
+
+    @And("^verify incident item has been deleted in 'Incidents list'$")
+    public void verifyIncidentDeleted() throws Throwable {
+        incidentDelete.verifyIncidentDeleted();
     }
 }

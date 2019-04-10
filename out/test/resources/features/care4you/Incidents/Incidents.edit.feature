@@ -25,3 +25,17 @@ Feature: Incident
     Examples:
       | sname              | sdescription          | sdate                  | stype    | sseverity | semployeeId |
       | My incident EDITED | My description EDITED | Friday, March 22, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+
+
+  Scenario Outline: : Verify edition of incident
+    Given Enter 'Create an incident' form information
+      | name    | description    | date    | type    | severity    | employeeId    |
+      | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
+    And click 'submit' button in 'Incidents menu'
+    And verify incident item has been edited in 'Incidents list'
+      | name    | description    | date    | type    | severity    | employeeId    |
+      | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
+
+    Examples:
+      | sname              | sdescription          | sdate                  | stype    | sseverity | semployeeId |
+      | My incident EDITED | My description EDITED | Friday, March 22, 2019 | FRACTURE | HIGH      | Juan Pinto  |
