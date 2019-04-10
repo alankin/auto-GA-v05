@@ -22,5 +22,5 @@ Feature: Incident
     And click 'submit' button in 'Incidents menu'
 
     Examples:
-      | sname       | sdescription   | sdate                   | stype    | sseverity | semployeeId |
-      | My incident | My description | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+      | sname   | sdescription | sdate                   | stype    | sseverity | semployeeId |
+      | EJEMPLO | EJEMPLO      | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |

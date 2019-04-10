@@ -3,7 +3,8 @@ Feature: Incident
   Background: Incidents form is displayed
     Given 'Care4You' page is loaded
     And click 'Incidents' tab in 'Header menu'
-    And click 'Create an incident' menu item in 'Incidents menu'
+    And click 'Incidents' menu item in 'Incidents menu'
+    And click 'Edit an incident' button in first element of 'Incidents list'
 
   Scenario Outline: : Incidents form is filled
     Given Enter 'Create an incident' form information
@@ -11,8 +12,8 @@ Feature: Incident
       | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
 
     Examples:
-      | sname       | sdescription   | sdate                   | stype    | sseverity | semployeeId |
-      | My incident | My description | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+      | sname              | sdescription          | sdate                  | stype    | sseverity | semployeeId |
+      | My incident EDITED | My description EDITED | Friday, March 22, 2019 | FRACTURE | HIGH      | Juan Pinto  |
 
 
   Scenario Outline: : Incidents form is submitted
@@ -22,5 +23,5 @@ Feature: Incident
     And click 'submit' button in 'Incidents menu'
 
     Examples:
-      | sname   | sdescription | sdate                   | stype    | sseverity | semployeeId |
-      | EJEMPLO | EJEMPLO      | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+      | sname              | sdescription          | sdate                  | stype    | sseverity | semployeeId |
+      | My incident EDITED | My description EDITED | Friday, March 22, 2019 | FRACTURE | HIGH      | Juan Pinto  |

@@ -4,6 +4,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentCreate;
+import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentEdit;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.home.Home;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentHome;
 import org.umssdiplo.automationv01.core.utils.care4you.Care4You;
@@ -14,6 +15,7 @@ public class StepsDefinitionCare4You {
     private Home home;
     private IncidentHome incidentHome;
     private IncidentCreate incidentCreate;
+    private IncidentEdit incidentEdit;
 
     @Given("^'Care4You' page is loaded$")
     public void care4YouPageIsLoaded() throws Throwable {
@@ -21,6 +23,7 @@ public class StepsDefinitionCare4You {
         home = manager.getHome();
         incidentHome = manager.getIncidentHome();
         incidentCreate = manager.getIncidentCreate();
+        incidentEdit = manager.getIncidentEdit();
 
     }
 
@@ -54,5 +57,10 @@ public class StepsDefinitionCare4You {
     @And("^click 'submit' button in 'Incidents menu'$")
     public void submitIncidentsForm() throws Throwable {
         incidentCreate.submitIncidentsForm();
+    }
+
+    @And("^click 'Edit an incident' button in first element of 'Incidents list'$")
+    public void navigateToEditIncident() throws Throwable {
+        incidentEdit.navigateToEditIncident();
     }
 }
