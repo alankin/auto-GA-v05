@@ -13,10 +13,10 @@ public class Home extends BasePage {
     private WebElement homeOption;
 
     public void navigateToIncidents() {
-        CommonEvents.clickButton(incidentsOption);
+        CommonEvents.click(incidentsOption);
     }
 
     public void navigateToHome() {
-        CommonEvents.clickButton(homeOption);
+        CommonEvents.click(homeOption);
     }
 }

@@ -25,13 +25,31 @@ public class IncidentCreate extends BasePage {
     @FindBy(id = "employeeId")
     private WebElement employeeIdField;
 
+    /*@FindBy(xpath = "//div[@aria-label='Tuesday, April 16, 2019']")
+    private WebElement calendar;*/
+
+    @FindBy(id = "submit")
+    private WebElement submitButton;
+
+    private final static String calendarExpr = "//div[@aria-label='";
+    private final static String closeExpr = "']";
+
     public void fillIncidentsForm(Incident incident) {
-        CommonEvents.setInputField(nameField, incident.getName());
-        CommonEvents.setInputField(descriptionField, incident.getDescription());
-        CommonEvents.clickButton(dateField);
-        CommonEvents.setInputFieldNoEditable(dateField, incident.getDate());
-        CommonEvents.setInputFieldNoEditable(typeField, incident.getType());
-        CommonEvents.setInputFieldNoEditable(severityField, incident.getSeverity());
-        CommonEvents.setInputFieldNoEditable(employeeIdField, incident.getEmployeeId());
+        CommonEvents.setValue(nameField, incident.getName());
+        CommonEvents.setValue(descriptionField, incident.getDescription());
+        CommonEvents.click(dateField);
+        CommonEvents.click(CommonEvents.findByXPath(getDate(incident.getDate())));
+        CommonEvents.setValueNoEditable(typeField, incident.getType());
+        CommonEvents.setValueNoEditable(severityField, incident.getSeverity());
+        CommonEvents.setValueNoEditable(employeeIdField, incident.getEmployeeId());
+    }
+
+    public void submitIncidentsForm() {
+        CommonEvents.click(submitButton);
+    }
+
+
+    private static String getDate(String date) {
+        return calendarExpr + date + closeExpr;
     }
 }

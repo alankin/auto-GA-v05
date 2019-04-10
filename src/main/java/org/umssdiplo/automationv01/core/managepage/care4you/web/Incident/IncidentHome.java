@@ -16,14 +16,14 @@ public class IncidentHome extends BasePage {
     private WebElement reportIncidentsOption;
 
     public void openIncidentsList() {
-        CommonEvents.clickButton(listIncidentsOption);
+        CommonEvents.click(listIncidentsOption);
     }
 
     public void openIncidentsForm() {
-        CommonEvents.clickButton(createIncidentsOption);
+        CommonEvents.click(createIncidentsOption);
     }
 
     public void openIncidentsReport() {
-        CommonEvents.clickButton(reportIncidentsOption);
+        CommonEvents.click(reportIncidentsOption);
     }
 }

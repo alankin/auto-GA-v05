@@ -34,7 +34,7 @@ public class StepsDefinitionCare4You {
         incidentHome.openIncidentsList();
     }
 
-    @And("^click 'Create an incident' menu item in 'Incidents menu$")
+    @And("^click 'Create an incident' menu item in 'Incidents menu'$")
     public void openIncidentsForm() throws Throwable {
         incidentHome.openIncidentsForm();
     }
@@ -48,5 +48,11 @@ public class StepsDefinitionCare4You {
     @Given("^Enter 'Create an incident' form information$")
     public void enterIncidentsFormInformation(List<Incident> incident) throws Throwable {
         incidentCreate.fillIncidentsForm(incident.get(0));
+    }
+
+
+    @And("^click 'submit' button in 'Incidents menu'$")
+    public void submitIncidentsForm() throws Throwable {
+        incidentCreate.submitIncidentsForm();
     }
 }
