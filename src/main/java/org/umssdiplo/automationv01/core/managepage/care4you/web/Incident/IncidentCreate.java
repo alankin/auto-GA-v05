@@ -1,10 +1,13 @@
 package org.umssdiplo.automationv01.core.managepage.care4you.web.Incident;
 
+import com.sun.tools.javac.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
 import org.umssdiplo.automationv01.core.utils.CommonEvents;
+
+import java.util.List;
 
 public class IncidentCreate extends BasePage {
     @FindBy(id = "name")
@@ -31,6 +34,9 @@ public class IncidentCreate extends BasePage {
     @FindBy(id = "submit")
     private WebElement submitButton;
 
+    @FindBy(className = "incident-list-name")
+    private List<WebElement> nameColumnList;
+
     private final static String calendarExpr = "//div[@aria-label='";
     private final static String closeExpr = "']";
 
@@ -46,6 +52,13 @@ public class IncidentCreate extends BasePage {
 
     public void submitIncidentsForm() {
         CommonEvents.click(submitButton);
+    }
+
+    public void verifyIncidentCreated(Incident incident) {
+        WebElement createdElement = CommonEvents.findWebElement(nameColumnList, incident.getName());
+        if (null == createdElement) {
+            Assert.error();
+        }
     }
 
 

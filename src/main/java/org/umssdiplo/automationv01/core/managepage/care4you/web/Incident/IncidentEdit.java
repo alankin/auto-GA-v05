@@ -11,7 +11,6 @@ public class IncidentEdit extends BasePage {
     private WebElement updateButton0;
 
     public void navigateToEditIncident() {
-        System.out.println(updateButton0);
         CommonEvents.click(updateButton0);
     }
 

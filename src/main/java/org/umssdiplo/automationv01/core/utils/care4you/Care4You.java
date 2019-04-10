@@ -2,6 +2,7 @@ package org.umssdiplo.automationv01.core.utils.care4you;
 
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentCreate;
+import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentDelete;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentEdit;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.home.Home;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentHome;
@@ -13,12 +14,14 @@ public final class Care4You {
     private IncidentHome incidentHome;
     private IncidentCreate incidentCreate;
     private IncidentEdit incidentEdit;
+    private IncidentDelete incidentDelete;
 
     private Care4You() {
         home = new Home();
         incidentHome = new IncidentHome();
         incidentCreate = new IncidentCreate();
         incidentEdit = new IncidentEdit();
+        incidentDelete = new IncidentDelete();
     }
 
     public static Care4You init() {
@@ -41,5 +44,9 @@ public final class Care4You {
 
     public IncidentEdit getIncidentEdit() {
         return incidentEdit;
+    }
+
+    public IncidentDelete getIncidentDelete() {
+        return incidentDelete;
     }
 }
