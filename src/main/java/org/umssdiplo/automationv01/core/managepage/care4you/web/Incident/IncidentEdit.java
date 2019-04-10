@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
-import org.umssdiplo.automationv01.core.utils.CommonEvents;
+
+import static org.umssdiplo.automationv01.core.utils.CommonEvents.*;
 
 import java.util.List;
 
@@ -17,11 +18,11 @@ public class IncidentEdit extends BasePage {
     private List<WebElement> nameColumnList;
 
     public void navigateToEditIncident() {
-        CommonEvents.click(updateButton0);
+        click(updateButton0);
     }
 
     public void verifyIncidentEdited(Incident incident) {
-        WebElement createdElement = CommonEvents.findWebElement(nameColumnList, incident.getName());
+        WebElement createdElement = findWebElement(nameColumnList, incident.getName());
         if (null == createdElement) {
             Assert.error();
         }

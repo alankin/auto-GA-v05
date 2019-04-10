@@ -3,7 +3,8 @@ package org.umssdiplo.automationv01.core.managepage.care4you.web.Incident;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
-import org.umssdiplo.automationv01.core.utils.CommonEvents;
+
+import static org.umssdiplo.automationv01.core.utils.CommonEvents.*;
 
 public class IncidentHome extends BasePage {
     @FindBy(id = "list-incidents-menu")
@@ -16,14 +17,14 @@ public class IncidentHome extends BasePage {
     private WebElement reportIncidentsOption;
 
     public void openIncidentsList() {
-        CommonEvents.click(listIncidentsOption);
+        click(listIncidentsOption);
     }
 
     public void openIncidentsForm() {
-        CommonEvents.click(createIncidentsOption);
+        click(createIncidentsOption);
     }
 
     public void openIncidentsReport() {
-        CommonEvents.click(reportIncidentsOption);
+        click(reportIncidentsOption);
     }
 }

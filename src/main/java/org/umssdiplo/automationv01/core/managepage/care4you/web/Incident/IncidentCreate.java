@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
 import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
-import org.umssdiplo.automationv01.core.utils.CommonEvents;
+
+import static org.umssdiplo.automationv01.core.utils.CommonEvents.*;
 
 import java.util.List;
 
@@ -41,21 +42,21 @@ public class IncidentCreate extends BasePage {
     private final static String closeExpr = "']";
 
     public void fillIncidentsForm(Incident incident) {
-        CommonEvents.setValue(nameField, incident.getName());
-        CommonEvents.setValue(descriptionField, incident.getDescription());
-        CommonEvents.click(dateField);
-        CommonEvents.click(CommonEvents.findByXPath(getDate(incident.getDate())));
-        CommonEvents.setValueNoEditable(typeField, incident.getType());
-        CommonEvents.setValueNoEditable(severityField, incident.getSeverity());
-        CommonEvents.setValueNoEditable(employeeIdField, incident.getEmployeeId());
+        setValue(nameField, incident.getName());
+        setValue(descriptionField, incident.getDescription());
+        click(dateField);
+        click(findByXPath(getDate(incident.getDate())));
+        setValueNoEditable(typeField, incident.getType());
+        setValueNoEditable(severityField, incident.getSeverity());
+        setValueNoEditable(employeeIdField, incident.getEmployeeId());
     }
 
     public void submitIncidentsForm() {
-        CommonEvents.click(submitButton);
+        click(submitButton);
     }
 
     public void verifyIncidentCreated(Incident incident) {
-        WebElement createdElement = CommonEvents.findWebElement(nameColumnList, incident.getName());
+        WebElement createdElement = findWebElement(nameColumnList, incident.getName());
         if (null == createdElement) {
             Assert.error();
         }

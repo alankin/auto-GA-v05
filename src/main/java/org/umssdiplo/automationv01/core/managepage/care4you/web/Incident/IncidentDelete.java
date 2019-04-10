@@ -4,9 +4,10 @@ import com.sun.tools.javac.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
-import org.umssdiplo.automationv01.core.utils.CommonEvents;
 
 import java.util.List;
+
+import static org.umssdiplo.automationv01.core.utils.CommonEvents.*;
 
 public class IncidentDelete extends BasePage {
     @FindBy(id = "delete-0")
@@ -25,20 +26,20 @@ public class IncidentDelete extends BasePage {
 
     public void showDeleteModal() {
         initialSize = nameColumnList.size();
-        CommonEvents.click(deleteButton0);
+        click(deleteButton0);
     }
 
     public void deleteIncident() {
-        CommonEvents.click(confirmButton);
+        click(confirmButton);
     }
 
     public void cancelDeletionIncident() {
-        CommonEvents.click(cancelButton);
+        click(cancelButton);
     }
 
     public void verifyIncidentDeleted() {
         Integer newSize = nameColumnList.size();
-        if (initialSize.equals(newSize) || initialSize < newSize)){
+        if (initialSize.equals(newSize) || initialSize < newSize) {
             Assert.error();
         }
     }

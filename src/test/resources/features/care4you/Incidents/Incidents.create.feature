@@ -35,5 +35,5 @@ Feature: Incident
       | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
 
     Examples:
-      | sname          | sdescription | sdate                   | stype    | sseverity | semployeeId |
-      | EJEMPLO LALALA | EJEMPLO      | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+      | sname           | sdescription | sdate                   | stype    | sseverity | semployeeId |
+      | EJEMPLO JOJOJOJ | EJEMPLO      | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |
