@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CommonEvents {
 
@@ -90,8 +91,24 @@ public class CommonEvents {
                 .orElse(null);
     }
 
+    public static Integer findWebElementPosition(List<WebElement> elements, String content) {
+        Integer response = -1;
+
+        for (int i = 0; i < elements.size(); i++) {
+            if (content.equals(elements.get(i).getText())) {
+                response = i;
+            }
+        }
+
+        return response;
+    }
+
     public static WebElement findByXPath(String expression) {
         return ManageDriver.getInstance().getWebDriver().findElement(By.xpath(expression));
+    }
+
+    public static WebElement findById(String id) {
+        return ManageDriver.getInstance().getWebDriver().findElement(By.id(id));
     }
 
     /**

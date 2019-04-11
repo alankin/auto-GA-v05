@@ -24,7 +24,7 @@ public class IncidentDelete extends BasePage {
 
     public Integer initialSize;
 
-    public void showDeleteModal() {
+    public void showDeleteModalFirstElement() {
         initialSize = nameColumnList.size();
         click(deleteButton0);
     }

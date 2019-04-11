@@ -30,10 +30,10 @@ Feature: Incident
       | name    | description    | date    | type    | severity    | employeeId    |
       | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
     And click 'submit' button in 'Incidents menu'
-    And verify incident item exist in 'Incidents list'
+    Then verify incident item exist in 'Incidents list'
       | name    | description    | date    | type    | severity    | employeeId    |
       | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
 
     Examples:
-      | sname           | sdescription | sdate                   | stype    | sseverity | semployeeId |
-      | EJEMPLO JOJOJOJ | EJEMPLO      | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+      | sname          | sdescription | sdate                   | stype    | sseverity | semployeeId |
+      | Injury by fire | EJEMPLO      | Tuesday, April 16, 2019 | FRACTURE | HIGH      | Juan Pinto  |

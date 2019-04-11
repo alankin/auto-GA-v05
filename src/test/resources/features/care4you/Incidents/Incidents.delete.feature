@@ -12,4 +12,4 @@ Feature: Incident
   Scenario: Verify deletion of incident
     Given click 'Delete an incident' button in first element of 'Incidents list'
     And click 'Ok' button from deletion modal
-    And verify incident item has been deleted in 'Incidents list'
+    Then verify incident item has been deleted in 'Incidents list'

@@ -51,7 +51,7 @@ public class StepsDefinitionCare4You {
     }
 
 
-    @Given("^Enter 'Create an incident' form information$")
+    @And("^Enter 'Create an incident' form information$")
     public void enterIncidentsFormInformation(List<Incident> incident) throws Throwable {
         incidentCreate.fillIncidentsForm(incident.get(0));
     }
@@ -68,8 +68,13 @@ public class StepsDefinitionCare4You {
     }
 
     @And("^click 'Edit an incident' button in first element of 'Incidents list'$")
-    public void navigateToEditIncident() throws Throwable {
-        incidentEdit.navigateToEditIncident();
+    public void navigateToEditIncidentFirstElement() throws Throwable {
+        incidentEdit.navigateToEditIncidentFirstElement();
+    }
+
+    @Given("^click 'Edit an incident' button in one element of 'Incidents list'$")
+    public void navigateToEditIncident(List<Incident> incidents) throws Throwable {
+        incidentEdit.navigateToEditIncident(incidents.get(0));
     }
 
     @And("^verify incident item has been edited in 'Incidents list'$")
@@ -79,7 +84,7 @@ public class StepsDefinitionCare4You {
 
     @Given("^click 'Delete an incident' button in first element of 'Incidents list'$")
     public void showDeleteModal() throws Throwable {
-        incidentDelete.showDeleteModal();
+        incidentDelete.showDeleteModalFirstElement();
     }
 
     @And("^click 'Ok' button from deletion modal$")
