@@ -9,7 +9,24 @@ Feature: Incident
     Given click 'Delete an incident' button in first element of 'Incidents list'
     And click 'Ok' button from deletion modal
 
-  Scenario: Verify deletion of incident
-    Given click 'Delete an incident' button in first element of 'Incidents list'
+  Scenario Outline: Specific Incident is removed
+    Given click 'Remove an incident' button in one element of 'Incidents list'
+      | name    | description    | date    | type    | severity    | employeeId    |
+      | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
+    And click 'Ok' button from deletion modal
+
+    Examples:
+      | sname              | sdescription          | sdate                  | stype    | sseverity | semployeeId |
+      | My incident EDITED | My description EDITED | Friday, April 19, 2019 | FRACTURE | HIGH      | Juan Pinto  |
+
+
+  Scenario Outline: Verify deletion of incident
+    Given click 'Remove an incident' button in one element of 'Incidents list'
+      | name    | description    | date    | type    | severity    | employeeId    |
+      | <sname> | <sdescription> | <sdate> | <stype> | <sseverity> | <semployeeId> |
     And click 'Ok' button from deletion modal
     Then verify incident item has been deleted in 'Incidents list'
+
+    Examples:
+      | sname              | sdescription          | sdate                  | stype    | sseverity | semployeeId |
+      | My incident EDITED | My description EDITED | Friday, April 19, 2019 | FRACTURE | HIGH      | Juan Pinto  |

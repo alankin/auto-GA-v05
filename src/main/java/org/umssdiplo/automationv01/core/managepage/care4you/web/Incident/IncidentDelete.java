@@ -4,6 +4,7 @@ import com.sun.tools.javac.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
+import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
 
 import java.util.List;
 
@@ -31,6 +32,17 @@ public class IncidentDelete extends BasePage {
 
     public void deleteIncident() {
         click(confirmButton);
+    }
+
+    public void showDeleteModalSpecificElement(Incident incident) {
+        initialSize = nameColumnList.size();
+
+        Integer position = findWebElementPosition(nameColumnList, incident.getName());
+        WebElement element = findById("delete-" + position);
+        if (null == element) {
+            Assert.error();
+        }
+        click(element);
     }
 
     public void cancelDeletionIncident() {

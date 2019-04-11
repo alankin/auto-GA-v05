@@ -87,6 +87,11 @@ public class StepsDefinitionCare4You {
         incidentDelete.showDeleteModalFirstElement();
     }
 
+    @Given("^click 'Remove an incident' button in one element of 'Incidents list'$")
+    public void showDeleteModalSpecificElement(List<Incident> incidents) throws Throwable {
+        incidentDelete.showDeleteModalSpecificElement(incidents.get(0));
+    }
+
     @And("^click 'Ok' button from deletion modal$")
     public void deleteIncident() throws Throwable {
         incidentDelete.deleteIncident();
