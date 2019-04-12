@@ -1,6 +1,5 @@
 package org.umssdiplo.automationv01.core.managepage.care4you.web.Incident;
 
-import com.sun.tools.javac.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;
@@ -19,6 +18,8 @@ public class IncidentDelete extends BasePage {
 
     private Integer initialSize;
 
+    private final String deletePrefix = "delete-";
+
     public void deleteIncident() {
         click(confirmButton);
     }
@@ -31,14 +32,12 @@ public class IncidentDelete extends BasePage {
 
     public WebElement getElement(String name) {
         Integer position = findWebElementPosition(nameColumnList, name);
-        return findById("delete-" + position);
+        return findById(deletePrefix + position);
     }
 
-    public void verifyIncidentDeleted() {
+    public boolean verifyIncidentDeleted() {
         Integer newSize = nameColumnList.size();
-        if (initialSize.equals(newSize) || initialSize < newSize) {
-            Assert.error();
-        }
+        return (initialSize.equals(newSize) || initialSize < newSize);
     }
 
 }

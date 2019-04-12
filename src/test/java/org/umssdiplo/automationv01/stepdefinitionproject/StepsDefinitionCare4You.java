@@ -72,8 +72,6 @@ public class StepsDefinitionCare4You {
     /**
      * Creation
      */
-
-
     @And("^Enter 'Create an incident' form information$")
     public void enterIncidentsFormInformation(List<Incident> incident) throws Throwable {
         incidentCreate.fillIncidentsForm(incident.get(0));
@@ -117,8 +115,11 @@ public class StepsDefinitionCare4You {
         incidentDelete.deleteIncident();
     }
 
-    @And("^verify incident item has been deleted in 'Incidents list'$")
+    @Then("^verify incident item has been deleted in 'Incidents list'$")
     public void verifyIncidentDeleted() throws Throwable {
-        incidentDelete.verifyIncidentDeleted();
+        Boolean removed = incidentDelete.verifyIncidentDeleted();
+        if (removed) {
+            Assert.error("[" + IncidentEdit.class + "]: Verification Exception: Incident has not been removed from in incident list.");
+        }
     }
 }

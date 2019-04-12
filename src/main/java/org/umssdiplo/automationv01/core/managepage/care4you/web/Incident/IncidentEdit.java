@@ -13,9 +13,11 @@ public class IncidentEdit extends BasePage {
     @FindBy(className = "incident-list-name")
     private List<WebElement> nameColumnList;
 
+    private final String updatePrefix = "update-";
+
     public WebElement getElement(String name) {
         Integer position = findWebElementPosition(nameColumnList, name);
-        return findById("update-" + position);
+        return findById(updatePrefix + position);
     }
 
     public void navigateToEditIncident(WebElement element) {
