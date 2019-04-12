@@ -29,9 +29,6 @@ public class IncidentCreate extends BasePage {
     @FindBy(id = "employeeId")
     private WebElement employeeIdField;
 
-    /*@FindBy(xpath = "//div[@aria-label='Tuesday, April 16, 2019']")
-    private WebElement calendar;*/
-
     @FindBy(id = "submit")
     private WebElement submitButton;
 
@@ -55,13 +52,9 @@ public class IncidentCreate extends BasePage {
         click(submitButton);
     }
 
-    public void verifyIncidentCreated(Incident incident) {
-        WebElement createdElement = findWebElement(nameColumnList, incident.getName());
-        if (null == createdElement) {
-            Assert.error();
-        }
+    public WebElement getElement(String name) {
+        return findWebElement(nameColumnList, name);
     }
-
 
     private static String getDate(String date) {
         return calendarExpr + date + closeExpr;

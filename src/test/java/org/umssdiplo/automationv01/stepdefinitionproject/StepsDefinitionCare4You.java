@@ -1,7 +1,10 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
+import com.sun.tools.javac.util.Assert;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import org.openqa.selenium.WebElement;
 import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentCreate;
 import org.umssdiplo.automationv01.core.managepage.care4you.web.Incident.IncidentDelete;
@@ -30,6 +33,10 @@ public class StepsDefinitionCare4You {
 
     }
 
+    /**
+     * Home
+     */
+
     @And("^click 'Incidents' tab in 'Header menu'$")
     public void navigateToIncidents() throws Throwable {
         home.navigateToIncidents();
@@ -50,6 +57,22 @@ public class StepsDefinitionCare4You {
         incidentHome.openIncidentsReport();
     }
 
+    /**
+     * Commons
+     */
+
+    @Then("^verify incident item with name \"([^\"]*)\" exist in 'Incidents list'$")
+    public void verifyIncidentItemWithNameExistInIncidentsList(String name) {
+        WebElement element = incidentCreate.getElement(name);
+        if (null == element) {
+            Assert.error("Verification Exception: Incident with name: " + name + " not exists in incident list.");
+        }
+    }
+
+    /**
+     * Creation
+     */
+
 
     @And("^Enter 'Create an incident' form information$")
     public void enterIncidentsFormInformation(List<Incident> incident) throws Throwable {
@@ -62,30 +85,23 @@ public class StepsDefinitionCare4You {
         incidentCreate.submitIncidentsForm();
     }
 
-    @And("^verify incident item exist in 'Incidents list'$")
-    public void verifyIncidentCreated(List<Incident> incident) throws Throwable {
-        incidentCreate.verifyIncidentCreated(incident.get(0));
+    /**
+     * Edition
+     */
+
+    @Given("^click 'Edit an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
+    public void navigateToEditIncident(String name) throws Throwable {
+        WebElement element = incidentEdit.getElement(name);
+        if (null == element) {
+            Assert.error("[" + IncidentEdit.class + "]: Verification Exception: Incident with name: " + name + " not exists in incident list.");
+        }
+
+        incidentEdit.navigateToEditIncident(element);
     }
 
-    @And("^click 'Edit an incident' button in first element of 'Incidents list'$")
-    public void navigateToEditIncidentFirstElement() throws Throwable {
-        incidentEdit.navigateToEditIncidentFirstElement();
-    }
-
-    @Given("^click 'Edit an incident' button in one element of 'Incidents list'$")
-    public void navigateToEditIncident(List<Incident> incidents) throws Throwable {
-        incidentEdit.navigateToEditIncident(incidents.get(0));
-    }
-
-    @And("^verify incident item has been edited in 'Incidents list'$")
-    public void verifyIncidentEdited(List<Incident> incident) throws Throwable {
-        incidentEdit.verifyIncidentEdited(incident.get(0));
-    }
-
-    @Given("^click 'Delete an incident' button in first element of 'Incidents list'$")
-    public void showDeleteModal() throws Throwable {
-        incidentDelete.showDeleteModalFirstElement();
-    }
+    /**
+     * Deletion
+     */
 
     @Given("^click 'Remove an incident' button in one element of 'Incidents list'$")
     public void showDeleteModalSpecificElement(List<Incident> incidents) throws Throwable {
@@ -95,11 +111,6 @@ public class StepsDefinitionCare4You {
     @And("^click 'Ok' button from deletion modal$")
     public void deleteIncident() throws Throwable {
         incidentDelete.deleteIncident();
-    }
-
-    @And("^click 'Cancel' button from deletion modal$")
-    public void cancelDeletionIncident() throws Throwable {
-        incidentDelete.cancelDeletionIncident();
     }
 
     @And("^verify incident item has been deleted in 'Incidents list'$")
