@@ -1,6 +1,5 @@
 package org.umssdiplo.automationv01.core.managepage.care4you.web.Incident;
 
-import com.sun.tools.javac.util.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.umssdiplo.automationv01.core.managepage.BasePage;

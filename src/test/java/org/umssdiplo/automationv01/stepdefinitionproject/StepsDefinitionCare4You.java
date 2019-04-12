@@ -102,10 +102,14 @@ public class StepsDefinitionCare4You {
     /**
      * Deletion
      */
+    @Given("^click 'Remove an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
+    public void showDeleteModalSpecificElement(String name) throws Throwable {
+        WebElement element = incidentDelete.getElement(name);
+        if (null == element) {
+            Assert.error("[" + IncidentEdit.class + "]: Verification Exception: Incident with name: " + name + " not exists in incident list.");
+        }
 
-    @Given("^click 'Remove an incident' button in one element of 'Incidents list'$")
-    public void showDeleteModalSpecificElement(List<Incident> incidents) throws Throwable {
-        incidentDelete.showDeleteModalSpecificElement(incidents.get(0));
+        incidentDelete.showDeleteModalSpecificElement(element);
     }
 
     @And("^click 'Ok' button from deletion modal$")
