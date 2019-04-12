@@ -7,8 +7,6 @@ import org.umssdiplo.automationv01.core.managepage.care4you.domain.Incident;
 
 import static org.umssdiplo.automationv01.core.utils.CommonEvents.*;
 
-import java.util.List;
-
 public class IncidentCreate extends BasePage {
     @FindBy(id = "name")
     private WebElement nameField;
@@ -31,12 +29,6 @@ public class IncidentCreate extends BasePage {
     @FindBy(id = "submit")
     private WebElement submitButton;
 
-    @FindBy(className = "incident-list-name")
-    private List<WebElement> nameColumnList;
-
-    private final static String calendarExpr = "//div[@aria-label='";
-    private final static String closeExpr = "']";
-
     public void fillIncidentsForm(Incident incident) {
         setValue(nameField, incident.getName());
         setValue(descriptionField, incident.getDescription());
@@ -52,10 +44,10 @@ public class IncidentCreate extends BasePage {
     }
 
     public WebElement getElement(String name) {
-        return findWebElement(nameColumnList, name);
+        return findByXPath(("//td[contains(text(), '" + name + "')]"));
     }
 
     private static String getDate(String date) {
-        return calendarExpr + date + closeExpr;
+        return "//div[@aria-label='" + date + "']";
     }
 }

@@ -62,7 +62,7 @@ public class StepsDefinitionCare4You {
      */
 
     @Then("^verify incident item with name \"([^\"]*)\" exist in 'Incidents list'$")
-    public void verifyIncidentItemWithNameExistInIncidentsList(String name) {
+    public void verifyIncidentItemWithNameExistInIncidentsList(String name) throws Throwable {
         WebElement element = incidentCreate.getElement(name);
         if (null == element) {
             Assert.error("Verification Exception: Incident with name: " + name + " not exists in incident list.");
@@ -72,7 +72,7 @@ public class StepsDefinitionCare4You {
     /**
      * Creation
      */
-    @And("^Enter 'Create an incident' form information$")
+    @And("^Fill 'Incident form' information$")
     public void enterIncidentsFormInformation(List<Incident> incident) throws Throwable {
         incidentCreate.fillIncidentsForm(incident.get(0));
     }
@@ -89,12 +89,7 @@ public class StepsDefinitionCare4You {
 
     @Given("^click 'Edit an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
     public void navigateToEditIncident(String name) throws Throwable {
-        WebElement element = incidentEdit.getElement(name);
-        if (null == element) {
-            Assert.error("[" + IncidentEdit.class + "]: Verification Exception: Incident with name: " + name + " not exists in incident list.");
-        }
-
-        incidentEdit.navigateToEditIncident(element);
+        incidentEdit.navigateToEditIncident(name);
     }
 
     /**
@@ -102,12 +97,7 @@ public class StepsDefinitionCare4You {
      */
     @Given("^click 'Remove an incident' button in element with name \"([^\"]*)\" of 'Incidents list'$")
     public void showDeleteModalSpecificElement(String name) throws Throwable {
-        WebElement element = incidentDelete.getElement(name);
-        if (null == element) {
-            Assert.error("[" + IncidentEdit.class + "]: Verification Exception: Incident with name: " + name + " not exists in incident list.");
-        }
-
-        incidentDelete.showDeleteModalSpecificElement(element);
+        incidentDelete.showDeleteModalSpecificElement(name);
     }
 
     @And("^click 'Ok' button from deletion modal$")
@@ -115,11 +105,16 @@ public class StepsDefinitionCare4You {
         incidentDelete.deleteIncident();
     }
 
-    @Then("^verify incident item has been deleted in 'Incidents list'$")
-    public void verifyIncidentDeleted() throws Throwable {
-        Boolean removed = incidentDelete.verifyIncidentDeleted();
-        if (removed) {
-            Assert.error("[" + IncidentEdit.class + "]: Verification Exception: Incident has not been removed from in incident list.");
+    @And("^click 'Cancel' button from deletion modal$")
+    public void cancelIncident() throws Throwable {
+        incidentDelete.cancelIncident();
+    }
+
+    @Then("^verify incident item with name \"([^\"]*)\" has been deleted of 'Incidents list'$")
+    public void verifyIncidentDeleted(String name) throws Throwable {
+        WebElement element = incidentDelete.verifyIncidentDeleted(name);
+        if (null != element) {
+            Assert.error("[" + IncidentDelete.class + "]: Verification Exception: Incident has not been removed from in incident list.");
         }
     }
 }

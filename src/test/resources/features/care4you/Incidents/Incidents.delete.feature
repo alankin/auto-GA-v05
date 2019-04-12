@@ -8,7 +8,7 @@ Feature: Delete an Incident
   Scenario Outline: Verify deletion of incident
     Given click 'Remove an incident' button in element with name "<name>" of 'Incidents list'
     And click 'Ok' button from deletion modal
-    Then verify incident item has been deleted in 'Incidents list'
+    Then verify incident item with name "<name>" has been deleted of 'Incidents list'
 
     Examples:
       | name               |

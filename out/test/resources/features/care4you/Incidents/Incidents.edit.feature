@@ -7,7 +7,7 @@ Feature: Edit and Incident
 
   Scenario Outline: : Verify edition of incident
     Given click 'Edit an incident' button in element with name "<name>" of 'Incidents list'
-    And Enter 'Create an incident' form information
+    And Fill 'Incident form' information
       | name    | description    | date    | type    | severity    | employeeId    |
       | <ename> | <edescription> | <edate> | <etype> | <eseverity> | <eemployeeId> |
     And click 'submit' button in 'Incidents menu'

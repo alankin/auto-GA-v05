@@ -6,7 +6,7 @@ Feature: Create and Incident
     And click 'Create an incident' menu item in 'Incidents menu'
 
   Scenario Outline: Verify creation of incident
-    Given Enter 'Create an incident' form information
+    Given Fill 'Incident form' information
       | name   | description   | date   | type   | severity   | employeeId   |
       | <name> | <description> | <date> | <type> | <severity> | <employeeId> |
     And click 'submit' button in 'Incidents menu'
