@@ -111,7 +111,7 @@ public class StepsDefinitionCare4You {
     }
 
     @Then("^verify incident item with name \"([^\"]*)\" has been deleted of 'Incidents list'$")
-    public void verifyIncidentDeleted(String name) throws Throwable {
+    public void verifyIncidentDeleted(String name) {
         WebElement element = incidentDelete.verifyIncidentDeleted(name);
         if (null != element) {
             Assert.error("[" + IncidentDelete.class + "]: Verification Exception: Incident has not been removed from in incident list.");
