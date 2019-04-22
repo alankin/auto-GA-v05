@@ -1,9 +1,7 @@
 package org.umssdiplo.automationv01.core.utils;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
@@ -114,6 +112,11 @@ public class CommonEvents {
      */
     public static void pressEnterKey(WebElement webElement) {
         webElement.sendKeys(Keys.ENTER);
+    }
+
+    public static void hover(WebElement element) {
+        Actions builder = new Actions(ManageDriver.getInstance().getWebDriver());
+        builder.moveToElement(element).build().perform();
     }
 
 }
