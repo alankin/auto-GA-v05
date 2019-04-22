@@ -19,6 +19,15 @@ public class Puma extends BasePage {
     @FindBy(xpath = "//div[@title='Calzado de Fútbol X 18.3 TF']/parent::div//span[contains(@class, 'gl-price__value gl-price__value--sale')]")
     private WebElement firstShoeTitle;
 
+    @FindBy(xpath = "//a[@href='/calzado-de-futbol-x-18.3-tf/BB9398.html']")
+    private WebElement firstShoeItem;
+
+    @FindBy(xpath = "//button[@title='Elige tu talla']")
+    private WebElement buttonEligeTuTalla;
+
+    @FindBy(xpath = "//button[@title='MX 9.5']")
+    private WebElement buttonMX;
+
     public void hoverOverHeaderMenu() {
         hover(hombreHeaderMenu);
     }
@@ -32,7 +41,15 @@ public class Puma extends BasePage {
     }
 
     public void clickOverCalzado() {
+        firstShoeItem.click();
+    }
 
+    public void clickOverEligeTuTalla() {
+        buttonEligeTuTalla.click();
+    }
+
+    public void clickOverSizeButton() {
+        buttonMX.click();
     }
 
     public String getPrice() {

@@ -32,4 +32,14 @@ public class StepsDefinitionPuma {
     public void clickOverCalzado() throws Throwable {
         puma.clickOverCalzado();
     }
+
+    @And("^Click over 'ELIGE TU TALLA' select$")
+    public void clickOverEligeTuTalla() throws Throwable {
+        puma.clickOverEligeTuTalla();
+    }
+
+    @And("^Click over 'MX 9.5' from 'ELIGE TU TALLA' select$")
+    public void clickOverSizeButton() throws Throwable {
+        puma.clickOverSizeButton();
+    }
 }
