@@ -28,6 +28,28 @@ public class Puma extends BasePage {
     @FindBy(xpath = "//button[@title='MX 9.5']")
     private WebElement buttonMX;
 
+    @FindBy(xpath = "//button[@data-auto-id='add-to-bag']")
+    private WebElement buttonAddToCar;
+
+    @FindBy(xpath = "//span[@data-auto-id='add-to-bag-product-info-qty']")
+    private WebElement quantitySelected;
+
+    @FindBy(xpath = "//a[@href='//www.adidas.mx/on/demandware.store/Sites-adidas-MX-Site/es_MX/Cart-Show' and contains(@class, 'gl-cta gl-cta--primary')]")
+    private WebElement seeCartLink;
+
+    @FindBy(xpath = "//a[@title='Calzado de Fútbol X 18.3 TF']")
+    private WebElement titleCardCart;
+
+    //
+    @FindBy(xpath = "//div[contains(@class, 'cart-widget-label') and contains(text(), '1 producto')]")
+    private WebElement quantityValueSummarize;
+
+    @FindBy(xpath = "//div[@data-ci-test-id='orderTotalProductsDeliveryValue']")
+    private WebElement totalProductPrice;
+
+    @FindBy(xpath = "//div[@data-ci-test-id='orderTotalCartValue']")
+    private WebElement totalFinalPrice;
+
     public void hoverOverHeaderMenu() {
         hover(hombreHeaderMenu);
     }
@@ -50,6 +72,34 @@ public class Puma extends BasePage {
 
     public void clickOverSizeButton() {
         buttonMX.click();
+    }
+
+    public void clickOverAddToCar() {
+        buttonAddToCar.click();
+    }
+
+    public String getQuantitySelected() {
+        return quantitySelected.getText();
+    }
+
+    public void clickOverSeeCarLink() {
+        seeCartLink.click();
+    }
+
+    public String getTitleCard() {
+        return titleCardCart.getText();
+    }
+
+    public String getQuantitySummarize() {
+        return quantityValueSummarize.getText();
+    }
+
+    public String getTotalProductPrice() {
+        return totalProductPrice.getText();
+    }
+
+    public String getTotalFinalPrice() {
+        return totalFinalPrice.getText();
     }
 
     public String getPrice() {
